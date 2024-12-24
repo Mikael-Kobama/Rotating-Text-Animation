@@ -1,0 +1,155 @@
+/* Reseta margens e paddings para garantir um layout mais controlado */
+* {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* A estilização principal do layout, centralizando o conteúdo vertical e horizontalmente */
+.outer-headings {
+    height: 100vh; /* Altura da tela inteira */
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    flex-direction: column; /* Organiza os itens na vertical */
+    justify-content: center; /* Centraliza no eixo vertical */
+    align-items: center; /* Centraliza no eixo horizontal */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilização do título h1 */
+h1 {
+    font-size: 3rem; /* Tamanho maior da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+    color: #333; /* Cor escura para o título */
+    text-transform: uppercase; /* Transforma as letras para maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    margin-bottom: 1rem; /* Espaçamento abaixo do título */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave no texto */
+}
+
+/* Div que contém as animações */
+.inner-headings {
+    border: 0px solid #ddd; /* Sem borda */
+    height: 50px; /* Altura para controlar o espaço de rotação */
+    line-height: 50px; /* Alinha o texto verticalmente */
+    font-size: 2rem; /* Tamanho da fonte */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    overflow: hidden; /* Esconde o texto que ultrapassar o limite */
+}
+
+/* Estilo do texto que irá rotacionar */
+.inner-headings span {
+    position: relative; /* Para usar a propriedade top no movimento */
+    font-weight: bold; /* Deixa o texto em negrito */
+    animation: rotationAnimation 15s ease-in-out infinite, colorChange 15s ease-in-out infinite; /* Aplica as animações */
+}
+
+/* Definindo a animação que irá mover o texto de cima para baixo */
+@keyframes rotationAnimation {
+    0%, 100% {
+        top: 0; /* Começa e termina na posição original */
+    }
+    20% {
+        top: 0;
+    }
+    25% {
+        top: -50px; /* A primeira linha sai de vista */
+    }
+    45% {
+        top: -50px;
+    }
+    50% {
+        top: -100px; /* Segunda linha sai de vista */
+    }
+    70% {
+        top: -100px;
+    }
+    75% {
+        top: -150px; /* A terceira linha sai de vista */
+    }
+    95% {
+        top: -150px;
+    }
+}
+
+/* Animação de mudança de cor do texto */
+@keyframes colorChange {
+    0% {
+        color: #ff6347; /* Cor inicial do texto (vermelho) */
+    }
+    20% {
+        color: #ff6347; /* Cor fixa durante a primeira linha */
+    }
+    25% {
+        color: #4caf50; /* Cor muda para verde */
+    }
+    45% {
+        color: #4caf50; /* Cor fixa durante a segunda linha */
+    }
+    50% {
+        color: #2196f3; /* Cor muda para azul */
+    }
+    70% {
+        color: #2196f3; /* Cor fixa durante a terceira linha */
+    }
+    75% {
+        color: #ff9800; /* Cor muda para laranja */
+    }
+    95% {
+        color: #ff9800; /* Cor fixa durante a última linha */
+    }
+}
+
+/* Animação de mudança de cor do fundo da página */
+@keyframes backgroundChange {
+    0% {
+        background-color: #f0f0f0; /* Cor inicial do fundo (cinza claro) */
+    }
+    20% {
+        background-color: #ffebee; /* Fundo levemente rosa */
+    }
+    25% {
+        background-color: #c8e6c9; /* Fundo verde claro */
+    }
+    45% {
+        background-color: #c8e6c9; /* Fundo verde claro */
+    }
+    50% {
+        background-color: #bbdefb; /* Fundo azul claro */
+    }
+    70% {
+        background-color: #bbdefb; /* Fundo azul claro */
+    }
+    75% {
+        background-color: #ffecb3; /* Fundo amarelo claro */
+    }
+    95% {
+        background-color: #ffecb3; /* Fundo amarelo claro */
+    }
+}
+
+/* Aplicando a animação ao corpo da página */
+body {
+    animation: backgroundChange 15s ease-in-out infinite; /* Aplica a animação de mudança de fundo */
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f0f0f0; /* Cor de fundo inicial da página */
+    transition: background-color 0.5s ease-in-out; /* Transição suave para o fundo */
+}
+
+/* Estilo para o bloco de informações de contato */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem; /* Tamanho da fonte */
+    margin-top: 2rem; /* Espaçamento entre o texto e as informações de contato */ /* Cor escura para o texto */
+    animation: colorChange 15s ease-in-out infinite; /* Aplica a animação de cor no texto de contato */
+}
+
+/* Estilo para os links ou informações de contato dentro do bloco */
+.contact-info a {
+    margin-bottom: 0.5rem; /* Espaçamento entre as linhas */
+    color: inherit; /* Herda a cor da animação de mudança de cor */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
